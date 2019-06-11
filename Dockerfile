@@ -8,7 +8,7 @@ LABEL maintainer="nikita@kulikof.ru" \
 # Install all the required emulator dependencies.
 # You can get these by running ./android/scripts/unix/run_tests.sh --verbose --verbose --debs | grep apt | sort -u
 # pulse audio is needed due to some webrtc dependencies.
-RUN apt-get update -qq && apt-get install -y -qq \
+RUN apt-get update && apt-get install -y \
 # Needed for install / debug
     curl unzip procps bash wget \
 # Emulator & video bridge dependencies
@@ -25,8 +25,8 @@ RUN mkdir -p /android/sdk/platforms && \
     mkdir -p /android/sdk/system-images && \
     mkdir -p /android-home
 
-RUN wget -q -P /android/sdk/ https://dl.google.com/android/repository/sys-img/android/x86_64-29_r05.zip
-RUN wget -q -P /android/sdk/ https://dl.google.com/android/repository/emulator-linux-5598178.zip
+RUN wget -P /android/sdk/ https://dl.google.com/android/repository/sys-img/android/x86_64-29_r05.zip
+RUN wget -P /android/sdk/ https://dl.google.com/android/repository/emulator-linux-5598178.zip
 COPY launch-emulator.sh /android/sdk/
 COPY default.pa /android/sdk/
 COPY platform-tools /android/sdk/

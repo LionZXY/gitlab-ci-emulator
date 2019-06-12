@@ -1,6 +1,6 @@
 #!/bin/bash
 
-/android/sdk/launch-emulator.sh >> emulator-stdout.log &
+/android/sdk/launch-emulator.sh > emulator.log 2>&1 &
 
 # Originally written by Ralf Kistner <ralf@embarkmobile.com>, but placed in the public domain
 
@@ -20,7 +20,8 @@ until [[ "$bootanim" =~ "stopped" ]]; do
       echo "Timeout ($timeout_in_sec seconds) reached; failed to start emulator"
       exit 1
     fi
-  fi
+  else
+    echo "Out from adb: $bootanim"
   sleep 1
 done
 

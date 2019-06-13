@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd $ANDROID_HOME && $ANDROID_HOME/launch-emulator.sh > emulator.log 2>&1 &
+cd $ANDROID_HOME && $ANDROID_HOME/launch-emulator.sh > /emulator.log 2>&1 &
 
 # Originally written by Ralf Kistner <ralf@embarkmobile.com>, but placed in the public domain
 
@@ -23,7 +23,7 @@ until [[ "$bootanim" =~ "stopped" ]]; do
 
   if [[ $failcounter -gt timeout_in_sec ]]; then
     echo "Timeout ($timeout_in_sec seconds) reached; failed to start emulator"
-    cat emulator.log
+    cat /emulator.log
     exit 1
   fi
   sleep 1

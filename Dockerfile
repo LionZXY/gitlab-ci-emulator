@@ -19,6 +19,7 @@ RUN apt-get -qq update && \
       lib32z1 \
       unzip \
       locales \
+      cowsay \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # GitLab injects the username as ENV-variable which will crash a gradle-build.

@@ -17,6 +17,7 @@ RUN apt-get -qq update && \
       lib32gcc1 \
       lib32ncurses5 \
       lib32z1 \
+      zip \
       unzip \
       locales \
       cowsay \

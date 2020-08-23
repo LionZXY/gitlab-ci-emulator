@@ -45,10 +45,10 @@ RUN mkdir -p /root/.android && \
   touch /root/.android/repositories.cfg && \
   sdkmanager --update
 
+RUN yes | sdkmanager --licenses
+
 RUN while read -r package; do PACKAGES="${PACKAGES}${package} "; done < $ANDROID_HOME/packages.txt && \
     sdkmanager ${PACKAGES}
-
-RUN yes | sdkmanager --licenses
 
 COPY run-emulator /run-emulator
 RUN chmod +x /run-emulator

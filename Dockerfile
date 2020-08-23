@@ -49,6 +49,7 @@ RUN yes | sdkmanager --licenses
 
 RUN while read -r package; do PACKAGES="${PACKAGES}${package} "; done < $ANDROID_HOME/packages.txt && \
     sdkmanager ${PACKAGES}
+RUN sdkmanager --update
 
 COPY run-emulator /run-emulator
 RUN chmod +x /run-emulator

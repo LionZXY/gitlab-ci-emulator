@@ -1,6 +1,6 @@
 FROM lionzxy/google-android-emulator:latest
 
-ENV VERSION_SDK_TOOLS "4333796"
+ENV VERSION_SDK_TOOLS "6609375_latest"
 ENV PATH "$PATH:${ANDROID_HOME}/tools"
 ENV PATH "$PATH:${ANDROID_HOME}/tools/bin"
 ENV DEBIAN_FRONTEND noninteractive
@@ -31,7 +31,7 @@ RUN apt-get -qq update && \
 RUN rm -rf /var/lib/apt/lists/* && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
 ENV LANG en_US.UTF-8
 
-RUN curl -s https://dl.google.com/android/repository/sdk-tools-linux-${VERSION_SDK_TOOLS}.zip > /sdk.zip && \
+RUN curl -s https://dl.google.com/android/repository/commandlinetools-linux-${VERSION_SDK_TOOLS}.zip > /sdk.zip && \
     unzip /sdk.zip -d $ANDROID_HOME && \
     rm -v /sdk.zip
 

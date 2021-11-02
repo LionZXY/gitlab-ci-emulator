@@ -1,9 +1,10 @@
 FROM lionzxy/google-android-emulator:latest
 
-ENV VERSION_SDK_TOOLS "6609375_latest"
+ENV VERSION_SDK_TOOLS "7583922_latest"
 ENV CMDLINE_TOOLS "${ANDROID_HOME}/../cmdline-tools"
-ENV PATH "$PATH:${CMDLINE_TOOLS}/tools"
-ENV PATH "$PATH:${CMDLINE_TOOLS}/tools/bin"
+ENV PATH "$PATH:${CMDLINE_TOOLS}/cmdline-tools"
+ENV PATH "$PATH:${CMDLINE_TOOLS}/cmdline-tools/bin"
+ENV PATH "$PATH:/android/platform-tools"
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get -qq update && \
@@ -12,11 +13,11 @@ RUN apt-get -qq update && \
       curl \
       git-core \
       html2text \
-      openjdk-8-jdk \
+      openjdk-11-jdk \
       libc6-i386 \
       lib32stdc++6 \
-      lib32gcc1 \
-      lib32ncurses5 \
+      lib32gcc-s1 \
+      lib32ncurses6 \
       lib32z1 \
       zip \
       unzip \

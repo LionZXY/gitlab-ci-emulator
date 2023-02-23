@@ -1,6 +1,6 @@
 FROM lionzxy/google-android-emulator:latest
 
-ENV VERSION_SDK_TOOLS "8092744_latest"
+ENV VERSION_SDK_TOOLS "9477386_latest"
 ENV CMDLINE_TOOLS "${ANDROID_HOME}/../cmdline-tools"
 ENV PATH "$PATH:${CMDLINE_TOOLS}/cmdline-tools"
 ENV PATH "$PATH:${CMDLINE_TOOLS}/cmdline-tools/bin"

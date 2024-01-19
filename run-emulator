@@ -1,5 +1,7 @@
 #!/bin/bash
 
+rm /android-home/Pixel2.avd/*.lock
+
 cd $ANDROID_HOME && $ANDROID_HOME/launch-emulator.sh > /emulator.log 2>&1 &
 
 # Originally written by Ralf Kistner <ralf@embarkmobile.com>, but placed in the public domain
